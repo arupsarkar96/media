@@ -108,7 +108,7 @@ const handleUpload = async (
 };
 
 // 🎯 Upload general media
-app.post("/upload", upload.single("file"), async (req, res) => {
+app.post("/upload/message", upload.single("file"), async (req, res) => {
     await handleUpload(
         req,
         res,
@@ -123,7 +123,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 });
 
 // 👤 Upload user profile picture (overwrites)
-app.post("/profile", upload.single("file"), async (req, res) => {
+app.post("/upload/profile", upload.single("file"), async (req, res) => {
     const user = req.headers["x-user"] as string;
     if (!user) {
         return res.status(400).json({ error: "Missing x-user header" });
@@ -139,7 +139,7 @@ app.post("/profile", upload.single("file"), async (req, res) => {
 });
 
 // 🩺 Health check
-app.get("/health", (_, res) => res.send("OK"));
+app.get("/upload/health", (_, res) => res.send("OK"));
 
 // 🧯 Centralized error handler
 app.use((err: any, _: Request, res: Response, __: NextFunction) => {
