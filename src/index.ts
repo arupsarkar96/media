@@ -147,6 +147,6 @@ app.use((err: any, _: Request, res: Response, __: NextFunction) => {
     res.status(500).json({ error: "Internal Server Error" });
 });
 
-app.listen(8089, "0.0.0.0", () => {
-    console.log("🚀 Server hosted on port", 8089);
+app.listen(8080, "0.0.0.0", () => {
+    console.log("🚀 Server hosted on port", 8080);
 });
